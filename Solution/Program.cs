@@ -1,3 +1,20 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace Solution;
 
-Console.WriteLine("Hello, World!");
+public static class Program
+{
+    private static bool HandleRepeat()
+    {
+        // Console repeat message
+        return Console.ReadKey(true).Key == ConsoleKey.Enter;
+    }
+    
+    public static void Main()
+    {
+        // Console start message
+        
+        do
+        {
+            BodyCycle.Run();
+        } while (HandleRepeat());
+    }
+}

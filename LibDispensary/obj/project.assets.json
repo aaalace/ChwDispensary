@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "LibDispensary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/LibDispensary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LibDispensary.dll": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "LibDispensary/1.0.0": {
-      "type": "project",
-      "path": "../LibDispensary/LibDispensary.csproj",
-      "msbuildProject": "../LibDispensary/LibDispensary.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "LibDispensary >= 1.0.0"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "C:\\Users\\tyj5r\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\Solution\\Solution.csproj",
-      "projectName": "Solution",
-      "projectPath": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\Solution\\Solution.csproj",
+      "projectUniqueName": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\LibDispensary\\LibDispensary.csproj",
+      "projectName": "LibDispensary",
+      "projectPath": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\LibDispensary\\LibDispensary.csproj",
       "packagesPath": "C:\\Users\\tyj5r\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\Solution\\obj\\",
+      "outputPath": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\LibDispensary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tyj5r\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,11 +33,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\LibDispensary\\LibDispensary.csproj": {
-              "projectPath": "D:\\Projects\\learning\\hseCS\\module2\\ChwDispensary\\LibDispensary\\LibDispensary.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
