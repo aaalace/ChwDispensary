@@ -1,0 +1,12 @@
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\bin\Debug\net6.0\LibDispensary.deps.json
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\bin\Debug\net6.0\LibDispensary.dll
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\bin\Debug\net6.0\LibDispensary.pdb
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.csproj.AssemblyReference.cache
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.AssemblyInfoInputs.cache
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.AssemblyInfo.cs
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.csproj.CoreCompileInputs.cache
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.dll
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\refint\LibDispensary.dll
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\LibDispensary.pdb
+D:\Projects\learning\hseCS\module2\ChwDispensary\LibDispensary\obj\Debug\net6.0\ref\LibDispensary.dll

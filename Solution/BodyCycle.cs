@@ -1,6 +1,4 @@
-﻿using LibDispensary;
-
-namespace Solution;
+﻿namespace Solution;
 
 public static class BodyCycle
 {
