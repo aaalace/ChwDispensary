@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Solution;
+namespace Solution.Utils;
 
 public static class FileManager
 {

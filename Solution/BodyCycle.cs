@@ -1,4 +1,5 @@
-﻿using Solution.CustomExceptions;
+﻿using Solution.Utils;
+using Solution.CustomExceptions;
 
 namespace Solution;
 
@@ -22,7 +23,10 @@ public static class BodyCycle
             // Converting rows List<string> to List<Dispensary> if rows are correctly formatted.
             var dispensaryList = DispensaryCollectionCreator.GetDispensaryObjectsList(originalDataRowsList);
 
-            // TODO: Next program steps using dispensaryList.
+            // ...
+            ConsoleDataViewer.Run(dispensaryList);
+
+
         }
         catch (EmptyInputRowsException e)
         {
@@ -37,6 +41,14 @@ public static class BodyCycle
             Console.WriteLine(e.Message);
         }
         catch (IncorrectRowFormatException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        catch (DataViewTypeException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        catch (ArgumentOutOfRangeException e)
         {
             Console.WriteLine(e.Message);
         }

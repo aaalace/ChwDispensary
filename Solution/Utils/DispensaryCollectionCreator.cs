@@ -1,7 +1,7 @@
 ﻿using LibDispensary;
 using Solution.CustomExceptions;
 
-namespace Solution;
+namespace Solution.Utils;
 
 public static class DispensaryCollectionCreator
 {

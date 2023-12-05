@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace LibDispensary;
 
@@ -65,5 +66,11 @@ public class Dispensary
         _addressObj = new Address(postalCode: postalCode, admArea: admArea,
             district: district, publicPhone: publicPhone,
             fax: fax, email: email, address: address);
+    }
+
+    public override string ToString()
+    {
+        var sb = new StringBuilder();
+        return _rowNum;
     }
 }
