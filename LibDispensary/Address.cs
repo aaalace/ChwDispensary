@@ -1,15 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace LibDispensary;
+﻿namespace LibDispensary;
 
 public class Address
 {
-    private int _postalCode;
+    private string _postalCode;
     private string _admArea;
     private string _district;
-    private PhoneAttribute _publicPhone;
-    private PhoneAttribute _fax;
-    private EmailAddressAttribute _email;
+    private string _publicPhone;
+    private string _fax;
+    private string _email;
+    private string _address;
     
     /// <summary>
     /// Default constructor.
@@ -19,8 +18,8 @@ public class Address
     /// <summary>
     /// Main constructor.
     /// </summary>
-    public Address(int postalCode, string admArea, string district, 
-        PhoneAttribute publicPhone, PhoneAttribute fax, EmailAddressAttribute email)
+    public Address(string postalCode, string admArea, string district, 
+        string publicPhone, string fax, string email, string address)
     {
         _postalCode = postalCode;
         _admArea = admArea;
@@ -28,7 +27,6 @@ public class Address
         _publicPhone = publicPhone;
         _fax = fax;
         _email = email;
+        _address = address;
     }
-    
-    // Address realization.
 }

@@ -4,14 +4,13 @@ public static class Program
 {
     private static bool HandleRepeat()
     {
-        // Console repeat message
+        Console.WriteLine("Press Enter to continue");
         return Console.ReadKey(true).Key == ConsoleKey.Enter;
     }
     
     public static void Main()
     {
-        // Console start message
-        
+        Console.WriteLine("---Program started---");
         do
         {
             BodyCycle.Run();

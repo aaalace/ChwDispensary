@@ -4,26 +4,27 @@ namespace LibDispensary;
 
 public class Dispensary
 {
-    private int _rowNum;
+    private string _rowNum;
     private string _fullName;
     private string _shortName;
-    private Address _address;
     private string _chiefName;
     private string _chiefPosition;
     private string _chiefGender;
-    private PhoneAttribute _chiefPhone;
+    private string _chiefPhone;
     private string _closeFlag;
     private string _closeReason;
-    private DateOnly _closeDate;
-    private DateOnly _reopenDate;
+    private string _closeDate;
+    private string _reopenDate;
     private string _workingHours;
     private string _clarificationOfWorkingHours;
     private string _specialization;
     private string _beneficialDrugPrescriptions;
     private string _extraInfo;
-    private double _pointX;
-    private double _pointY;
-    private int _globalId;
+    private string _pointX;
+    private string _pointY;
+    private string _globalId;
+    
+    private Address _addressObj;
     
     /// <summary>
     /// Default constructor.
@@ -33,13 +34,13 @@ public class Dispensary
     /// <summary>
     /// Main constructor.
     /// </summary>
-    public Dispensary(int rowNum, string fullName, string shortName, string chiefName,
-        string chiefPosition, string chiefGender, PhoneAttribute chiefPhone, string closeFlag, string closeReason,
-        DateOnly closeDate, DateOnly reopenDate, string workingHours, string clarificationOfWorkingHours,
+    public Dispensary(string rowNum, string fullName, string shortName, string admArea, 
+        string district, string postalCode, string address, string chiefName,
+        string chiefPosition, string chiefGender, string chiefPhone, string publicPhone,
+        string fax, string email, string closeFlag, string closeReason,
+        string closeDate, string reopenDate, string workingHours, string clarificationOfWorkingHours,
         string specialization, string beneficialDrugPrescriptions, string extraInfo,
-        double pointX, double pointY, int globalId,
-        int postalCode, string admArea, string district, 
-        PhoneAttribute publicPhone, PhoneAttribute fax, EmailAddressAttribute email)
+        string pointX, string pointY, string globalId)
     {
         _rowNum = rowNum;
         _fullName = fullName;
@@ -61,8 +62,8 @@ public class Dispensary
         _pointY = pointY;
         _globalId = globalId;
 
-        _address = new Address(postalCode, admArea, district, publicPhone, fax, email);
+        _addressObj = new Address(postalCode: postalCode, admArea: admArea,
+            district: district, publicPhone: publicPhone,
+            fax: fax, email: email, address: address);
     }
-    
-    // Dispensary realization.
 }

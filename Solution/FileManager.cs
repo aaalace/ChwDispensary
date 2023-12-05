@@ -1,19 +1,24 @@
-﻿namespace Solution;
+﻿using System.Text;
+
+namespace Solution;
 
 public static class FileManager
 {
-    public static List<string> GetRowList()
+    public static List<string> GetFileLines()
     {
         string fileName = GetFileName();
         
-        // TODO: use CustomExceptions
-        // read file -> return list
+        var rows = File.ReadAllLines(fileName, encoding: Encoding.UTF8).ToList();
 
-        return new List<string>();
+        return rows;
     }
     
     private static string GetFileName()
     {
-        return "";
+        Console.WriteLine("Input file name");
+        string? fileName = Console.ReadLine();
+        if (fileName == null) { throw new ArgumentNullException(nameof(fileName)); }
+
+        return fileName;
     }
 }
