@@ -1,6 +1,6 @@
-﻿using LibDispensary;
-using Solution.CustomExceptions;
+﻿using Solution.CustomExceptions;
 using Solution.DispensaryForm;
+using LibDispensary;
 
 namespace Solution.Utils;
 
@@ -12,20 +12,18 @@ public static class DataToViewHandler
         Bottom
     }
     
-    public static void ParseAndShow(List<Dispensary> dispensaryList, string header)
+    public static void Show(List<Dispensary> dispensaryListToShow, string header)
     {
-        var dataViewType = GetDataViewType();
-        int dataViewCount = GetDataViewCount(dispensaryList.Count);
-        var dispensaryListToShow = GetElementsToShow(dispensaryList, dataViewType, dataViewCount);
-        Show(dispensaryListToShow, header);
-    }
-    
-    private static void Show(List<Dispensary> dispensaryListToShow, string header)
-    {
+        if (dispensaryListToShow.Count == 0)
+        {
+            Console.WriteLine("Empty set of objects");
+            return;
+        }
+        
         try
         {
-            Console.WriteLine("Close opened window to continue console work...");
             var customForm = new CustomForm(dispensaryListToShow, header);
+            Console.WriteLine("Close opened window to continue console work...");
             customForm.ShowDialog();
         }
         catch (Exception)
@@ -37,6 +35,14 @@ public static class DataToViewHandler
                 Console.WriteLine(element.ToString());
             }
         }
+    }
+    
+    public static void ParseAndShow(List<Dispensary> dispensaryList, string header)
+    {
+        var dataViewType = GetDataViewType();
+        int dataViewCount = GetDataViewCount(dispensaryList.Count);
+        var dispensaryListToShow = GetElementsToShow(dispensaryList, dataViewType, dataViewCount);
+        Show(dispensaryListToShow, header);
     }
 
     private static DataViewType GetDataViewType()

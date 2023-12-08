@@ -7,10 +7,10 @@ public static class DispensaryCollectionCreator
 {
     public static List<Dispensary> GetDispensaryObjectsList(List<string> rows)
     {
-        return rows.Select(GetDispensaryObject).ToList();
+        return rows.Select(CreateDispensaryObject).ToList();
     }
     
-    private static Dispensary GetDispensaryObject(string row, int ind)
+    private static Dispensary CreateDispensaryObject(string row, int ind)
     {
         var listBuilder = new List<string>();
         int rowNumberInFile = ind + 2;

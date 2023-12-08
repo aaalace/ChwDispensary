@@ -66,14 +66,16 @@ public class CustomForm : Form
         
         grid.ReadOnly = true;
         grid.RowHeadersVisible = false;
-        grid.AllowUserToOrderColumns = false;
         grid.AllowUserToResizeColumns = false;
         grid.AllowUserToResizeRows = false;
         
         FillGridHeader();
         FillGrid();
 
-        grid.CellClick += handleCellHover!;
+        if (_dpList.Count > 0)
+        {
+            grid.CellClick += handleCellHover!;
+        }
     }
 
     private void FillGridHeader()
@@ -81,6 +83,8 @@ public class CustomForm : Form
         for (int i = 0; i < 26; i++)
         {
             grid.Columns[i].HeaderCell.Value = _header[i];
+            grid.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            grid.Columns[i].Resizable = DataGridViewTriState.False;
         }
     }
 
@@ -100,6 +104,7 @@ public class CustomForm : Form
 
     private void handleCellHover(object sender, DataGridViewCellEventArgs e)
     {
+        if (e.RowIndex < 0) { return; }
         var cell = (DataGridViewTextBoxCell) grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
         fullInfoLabel.Text = cell.Value.ToString();
     }

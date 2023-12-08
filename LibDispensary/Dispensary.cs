@@ -25,11 +25,12 @@ public class Dispensary
     private string _pointY = string.Empty;
     private string _globalId = string.Empty;
     
-    private Address _addressObj = new ();
+    private Address _addressObj = new();
 
-    private readonly List<string> _dataList = new List<string>();
-    
-    public List<string> DataList => _dataList;
+    public List<string> DataList { get; } = new();
+    public Address Address => _addressObj;
+    public string Specialization => _specialization;
+    public string ChiefPosition => _chiefPosition;
 
     /// <summary>
     /// Default constructor.
@@ -41,7 +42,7 @@ public class Dispensary
     /// </summary>
     public Dispensary(List<string> dataList)
     {
-        _dataList = dataList;
+        DataList = dataList;
         
         _rowNum = dataList[0];
         _fullName = dataList[1];
@@ -68,5 +69,5 @@ public class Dispensary
             fax: dataList[12], email: dataList[13], address: dataList[6]);
     }
 
-    public override string ToString() => string.Join(' ', _dataList);
+    public override string ToString() => string.Join(" | ", DataList);
 }

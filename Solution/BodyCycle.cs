@@ -9,22 +9,31 @@ public static class BodyCycle
     {
         try
         {
-            // Getting path -> opening file -> getting rows from file -> checking for its number.
-            var fileLinesList = FileManager.GetFileLines();
+            // Get data from file.
+            var fileLinesList = FileOpener.GetFileLines();
             OriginalDataHandler.CheckRowsNumber(fileLinesList);
 
-            // Getting header from rows -> checking for its format.
-            string originalHeader = OriginalDataHandler.GetOriginalHeader(fileLinesList);
+            // Get header.
+            var originalHeader = OriginalDataHandler.GetOriginalHeader(fileLinesList);
             OriginalDataHandler.CheckHeader(originalHeader);
 
-            // Getting rows without header.
+            // Get data without header.
             var originalDataRowsList = OriginalDataHandler.GetOriginalDataRowsList(fileLinesList);
 
-            // Converting rows List<string> to List<Dispensary> if rows are correctly formatted.
+            // Get list of Dispensary objects from list of original rows.
             var dispensaryList = DispensaryCollectionCreator.GetDispensaryObjectsList(originalDataRowsList);
 
-            // Gets N rows from top or bottom and shows them to user.
+            // Show N rows (formatted as objects) from top/bottom.
             DataToViewHandler.ParseAndShow(dispensaryList, originalHeader);
+
+            // Get sorted/filtered objects.
+            var formattedDispensaryList = SortFilterManager.GetFormattedDispensaryList(dispensaryList);
+            
+            // Show sorted/filtered objects to user.
+            DataToViewHandler.Show(formattedDispensaryList, originalHeader);
+            
+            // Save sorted/filtered objects to file.
+            FileSaver.Save(formattedDispensaryList, originalHeader);
             
         }
         catch (EmptyInputRowsException e)

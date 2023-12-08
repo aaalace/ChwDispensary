@@ -9,6 +9,8 @@ public class Address
     private string _fax = string.Empty;
     private string _email = string.Empty;
     private string _address = string.Empty;
+
+    public string District => _district;
     
     /// <summary>
     /// Default constructor.

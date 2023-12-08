@@ -15,13 +15,13 @@ public static class OriginalDataHandler
     {
         if (rows.Count < 1) { throw new EmptyInputRowsException(); }
     }
-
+    
+    public static string GetOriginalHeader(List<string> rows) => rows[0];
+    
     public static void CheckHeader(string row)
     {
         if (row != correctHeaderRow) { throw new IncorrectHeaderFormatException(); }
     }
-
-    public static string GetOriginalHeader(List<string> rows) => rows[0];
     
     public static List<string> GetOriginalDataRowsList(List<string> rows)
     {
