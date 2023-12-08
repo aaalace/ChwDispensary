@@ -23,10 +23,9 @@ public static class BodyCycle
             // Converting rows List<string> to List<Dispensary> if rows are correctly formatted.
             var dispensaryList = DispensaryCollectionCreator.GetDispensaryObjectsList(originalDataRowsList);
 
-            // ...
-            ConsoleDataViewer.Run(dispensaryList);
-
-
+            // Gets N rows from top or bottom and shows them to user.
+            DataToViewHandler.ParseAndShow(dispensaryList, originalHeader);
+            
         }
         catch (EmptyInputRowsException e)
         {

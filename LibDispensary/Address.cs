@@ -2,13 +2,13 @@
 
 public class Address
 {
-    private string _postalCode;
-    private string _admArea;
-    private string _district;
-    private string _publicPhone;
-    private string _fax;
-    private string _email;
-    private string _address;
+    private string _postalCode = string.Empty;
+    private string _admArea = string.Empty;
+    private string _district = string.Empty;
+    private string _publicPhone = string.Empty;
+    private string _fax = string.Empty;
+    private string _email = string.Empty;
+    private string _address = string.Empty;
     
     /// <summary>
     /// Default constructor.

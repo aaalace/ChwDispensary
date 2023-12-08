@@ -5,28 +5,32 @@ namespace LibDispensary;
 
 public class Dispensary
 {
-    private string _rowNum;
-    private string _fullName;
-    private string _shortName;
-    private string _chiefName;
-    private string _chiefPosition;
-    private string _chiefGender;
-    private string _chiefPhone;
-    private string _closeFlag;
-    private string _closeReason;
-    private string _closeDate;
-    private string _reopenDate;
-    private string _workingHours;
-    private string _clarificationOfWorkingHours;
-    private string _specialization;
-    private string _beneficialDrugPrescriptions;
-    private string _extraInfo;
-    private string _pointX;
-    private string _pointY;
-    private string _globalId;
+    private string _rowNum = string.Empty;
+    private string _fullName = string.Empty;
+    private string _shortName = string.Empty;
+    private string _chiefName = string.Empty;
+    private string _chiefPosition = string.Empty;
+    private string _chiefGender = string.Empty;
+    private string _chiefPhone = string.Empty;
+    private string _closeFlag = string.Empty;
+    private string _closeReason = string.Empty;
+    private string _closeDate = string.Empty;
+    private string _reopenDate = string.Empty;
+    private string _workingHours = string.Empty;
+    private string _clarificationOfWorkingHours = string.Empty;
+    private string _specialization = string.Empty;
+    private string _beneficialDrugPrescriptions = string.Empty;
+    private string _extraInfo = string.Empty;
+    private string _pointX = string.Empty;
+    private string _pointY = string.Empty;
+    private string _globalId = string.Empty;
     
-    private Address _addressObj;
+    private Address _addressObj = new ();
+
+    private readonly List<string> _dataList = new List<string>();
     
+    public List<string> DataList => _dataList;
+
     /// <summary>
     /// Default constructor.
     /// </summary>
@@ -35,42 +39,34 @@ public class Dispensary
     /// <summary>
     /// Main constructor.
     /// </summary>
-    public Dispensary(string rowNum, string fullName, string shortName, string admArea, 
-        string district, string postalCode, string address, string chiefName,
-        string chiefPosition, string chiefGender, string chiefPhone, string publicPhone,
-        string fax, string email, string closeFlag, string closeReason,
-        string closeDate, string reopenDate, string workingHours, string clarificationOfWorkingHours,
-        string specialization, string beneficialDrugPrescriptions, string extraInfo,
-        string pointX, string pointY, string globalId)
+    public Dispensary(List<string> dataList)
     {
-        _rowNum = rowNum;
-        _fullName = fullName;
-        _shortName = shortName;
-        _chiefName = chiefName;
-        _chiefPosition = chiefPosition;
-        _chiefGender = chiefGender;
-        _chiefPhone = chiefPhone;
-        _closeFlag = closeFlag;
-        _closeReason = closeReason;
-        _closeDate = closeDate;
-        _reopenDate = reopenDate;
-        _workingHours = workingHours;
-        _clarificationOfWorkingHours = clarificationOfWorkingHours;
-        _specialization = specialization;
-        _beneficialDrugPrescriptions = beneficialDrugPrescriptions;
-        _extraInfo = extraInfo;
-        _pointX = pointX;
-        _pointY = pointY;
-        _globalId = globalId;
+        _dataList = dataList;
+        
+        _rowNum = dataList[0];
+        _fullName = dataList[1];
+        _shortName = dataList[2];
+        _chiefName = dataList[7];
+        _chiefPosition = dataList[8];
+        _chiefGender = dataList[9];
+        _chiefPhone = dataList[10];
+        _closeFlag = dataList[14];
+        _closeReason = dataList[15];
+        _closeDate = dataList[16];
+        _reopenDate = dataList[17];
+        _workingHours = dataList[18];
+        _clarificationOfWorkingHours = dataList[19];
+        _specialization = dataList[20];
+        _beneficialDrugPrescriptions = dataList[21];
+        _extraInfo = dataList[22];
+        _pointX = dataList[23];
+        _pointY = dataList[24];
+        _globalId = dataList[25];
 
-        _addressObj = new Address(postalCode: postalCode, admArea: admArea,
-            district: district, publicPhone: publicPhone,
-            fax: fax, email: email, address: address);
+        _addressObj = new Address(postalCode: dataList[5], admArea: dataList[3],
+            district: dataList[4], publicPhone: dataList[11],
+            fax: dataList[12], email: dataList[13], address: dataList[6]);
     }
 
-    public override string ToString()
-    {
-        var sb = new StringBuilder();
-        return _rowNum;
-    }
+    public override string ToString() => string.Join(' ', _dataList);
 }
