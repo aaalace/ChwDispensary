@@ -13,6 +13,11 @@ public static class FileSaver
         Cancel
     }
     
+    /// <summary>
+    /// Manages options how to save file.
+    /// </summary>
+    /// <param name="dispensaryListToSave">List of objects to save.</param>
+    /// <param name="header">Original header to save.</param>
     public static void Save(List<Dispensary> dispensaryListToSave, string header)
     {
         var savingMode = GetSavingMode();
@@ -39,6 +44,10 @@ public static class FileSaver
         }
     }
 
+    /// <summary>
+    /// Gets user's choice of saving mode.
+    /// </summary>
+    /// <returns>Saving mode.</returns>
     private static SavingMode GetSavingMode()
     {
         ConsoleManager.WriteLine("Select number of option to save data");
@@ -61,6 +70,10 @@ public static class FileSaver
         return savingMode;
     }
     
+    /// <summary>
+    /// Gets path of file where to save data.
+    /// </summary>
+    /// <returns></returns>
     private static string GetFilePath()
     {
         ConsoleManager.WriteLine("Input path to save");
@@ -70,6 +83,12 @@ public static class FileSaver
         return path;
     }
 
+    /// <summary>
+    /// Save data in new file.
+    /// </summary>
+    /// <param name="path">Path where to save.</param>
+    /// <param name="dispensaryList">Data to save.</param>
+    /// <param name="header">Header for saving data.</param>
     private static void SaveNew(string path, List<Dispensary> dispensaryList, string header)
     {
         if (File.Exists(path))
@@ -83,7 +102,7 @@ public static class FileSaver
         WriteFromStart(path, dispensaryList, header);
         
         return;
-
+        
         string ToCsvFormat(string remakePath)
         {
             if (!remakePath.Contains(".csv")) { remakePath += ".csv"; }
@@ -92,6 +111,12 @@ public static class FileSaver
         }
     }
 
+    /// <summary>
+    /// Rewrites file with current data.
+    /// </summary>
+    /// <param name="path">Path where to save.</param>
+    /// <param name="dispensaryList">Data to save.</param>
+    /// <param name="header">Header for saving data.</param>
     private static void SaveRewriteExisting(string path, List<Dispensary> dispensaryList, string header)
     {
         if (!File.Exists(path))
@@ -104,6 +129,12 @@ public static class FileSaver
         WriteFromStart(path, dispensaryList, header);
     }
 
+    /// <summary>
+    /// Adds data to existing file.
+    /// </summary>
+    /// <param name="path">Path where to save.</param>
+    /// <param name="dispensaryList">Data to save.</param>
+    /// <param name="header">Header for saving data.</param>
     private static void SaveAddToExiting(string path, List<Dispensary> dispensaryList, string header)
     {
         if (!File.Exists(path))
@@ -121,13 +152,24 @@ public static class FileSaver
         file.Close();
     }
 
+    /// <summary>
+    /// Writes rows to file starting from first.
+    /// </summary>
+    /// <param name="path">Path where to save.</param>
+    /// <param name="dispensaryList">Data to save.</param>
+    /// <param name="header">Header for saving data.</param>
     private static void WriteFromStart(string path, List<Dispensary> dispensaryList, string header)
     {
-        var linesToWrite = new List<string>() { header };
+        var linesToWrite = new List<string> { header };
         linesToWrite = linesToWrite.Concat(dispensaryList.Select(ParseDataRow).ToList()).ToList();
         File.WriteAllLines(path, linesToWrite);
     }
 
+    /// <summary>
+    /// Parses data from object to correct format of row in file.
+    /// </summary>
+    /// <param name="dispensary">Object with data.</param>
+    /// <returns>Row with correct format.</returns>
     private static string ParseDataRow(Dispensary dispensary)
     {
         const char sym = '"';

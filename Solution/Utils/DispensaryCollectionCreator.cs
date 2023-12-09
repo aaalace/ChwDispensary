@@ -5,11 +5,22 @@ namespace Solution.Utils;
 
 public static class DispensaryCollectionCreator
 {
+    /// <summary>
+    /// Creates list of Dispensary objects.
+    /// </summary>
+    /// <param name="rows">List of original rows.</param>
+    /// <returns>List of Dispensary rows.</returns>
     public static List<Dispensary> GetDispensaryObjectsList(List<string> rows)
     {
         return rows.Select(CreateDispensaryObject).ToList();
     }
     
+    /// <summary>
+    /// Created Dispensary object.
+    /// </summary>
+    /// <param name="row">Original row.</param>
+    /// <param name="ind">Index of original row.</param>
+    /// <returns>Dispensary object.</returns>
     private static Dispensary CreateDispensaryObject(string row, int ind)
     {
         var listBuilder = new List<string>();

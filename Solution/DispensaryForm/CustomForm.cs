@@ -18,6 +18,9 @@ public class CustomForm : Form
         InitializeComponent();
     }
     
+    /// <summary>
+    /// Inits form.
+    /// </summary>
     private void InitializeComponent()
     {
         // Form setup.
@@ -34,12 +37,18 @@ public class CustomForm : Form
         Controls.Add(grid);
     }
 
+    /// <summary>
+    /// Setups form.
+    /// </summary>
     private void SetupForm()
     {
         Size = new Size(1080, 660);
         Text = "Dispensary viewer";
     }
 
+    /// <summary>
+    /// Setups label.
+    /// </summary>
     private void SetupFullInfoLabel()
     {
         fullInfoLabel = new Label();
@@ -55,6 +64,9 @@ public class CustomForm : Form
         
     }
 
+    /// <summary>
+    /// Setups grid.
+    /// </summary>
     private void SetupDataGridView()
     {
         grid = new DataGridView();
@@ -78,6 +90,9 @@ public class CustomForm : Form
         }
     }
 
+    /// <summary>
+    /// Fills grid header with values.
+    /// </summary>
     private void FillGridHeader()
     {
         for (int i = 0; i < 26; i++)
@@ -88,6 +103,9 @@ public class CustomForm : Form
         }
     }
 
+    /// <summary>
+    /// Fills grid cells with values.
+    /// </summary>
     private void FillGrid()
     {
         for (int i = 0; i < grid.Rows.Count; i++)
@@ -102,6 +120,9 @@ public class CustomForm : Form
         }
     }
 
+    /// <summary>
+    /// Handler for cell to show it's data in label.
+    /// </summary>
     private void handleCellHover(object sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex < 0) { return; }

@@ -12,6 +12,11 @@ public static class DataToViewHandler
         Bottom
     }
     
+    /// <summary>
+    /// Runs WindowsForms form with table of object's data. If it's not possible shows data in console.
+    /// </summary>
+    /// <param name="dispensaryListToShow">List of data to show.</param>
+    /// <param name="header">Header of data.</param>
     public static void Show(List<Dispensary> dispensaryListToShow, string header)
     {
         if (dispensaryListToShow.Count == 0)
@@ -38,6 +43,11 @@ public static class DataToViewHandler
         }
     }
     
+    /// <summary>
+    /// Runs Show() but with data depending on N rows placed at top or bottom.
+    /// </summary>
+    /// <param name="dispensaryList">List of data to be processed.</param>
+    /// <param name="header">Header of data.</param>
     public static void ParseAndShow(List<Dispensary> dispensaryList, string header)
     {
         var dataViewType = GetDataViewType();
@@ -46,6 +56,10 @@ public static class DataToViewHandler
         Show(dispensaryListToShow, header);
     }
 
+    /// <summary>
+    /// Gets top or bottom state of placing rows.
+    /// </summary>
+    /// <returns>Type of view (top / bottom).</returns>
     private static DataViewType GetDataViewType()
     {
         ConsoleManager.WriteLine("Select view type (top / bottom):");
@@ -62,6 +76,11 @@ public static class DataToViewHandler
         return dataViewType;
     }
 
+    /// <summary>
+    /// Gets number of rows to show.
+    /// </summary>
+    /// <param name="countOfAll">Number of all rows.</param>
+    /// <returns>Number of rows to show.</returns>
     private static int GetDataViewCount(int countOfAll)
     {
         ConsoleManager.WriteLine($"Select view count (1 - {countOfAll}) :");
@@ -80,6 +99,13 @@ public static class DataToViewHandler
         return dataViewCount;
     }
 
+    /// <summary>
+    /// Gets objects to show.
+    /// </summary>
+    /// <param name="dispensaryList">List of all objects.</param>
+    /// <param name="dataViewType">Top or bottom</param>
+    /// <param name="dataViewCount">Number of rows to show.</param>
+    /// <returns>List of objects to show.</returns>
     private static List<Dispensary> GetElementsToShow(List<Dispensary> dispensaryList, 
         DataViewType dataViewType, int dataViewCount)
     {

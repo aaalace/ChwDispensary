@@ -4,6 +4,10 @@ namespace Solution.Utils;
 
 public static class FileOpener
 {
+    /// <summary>
+    /// Gets all file lines.
+    /// </summary>
+    /// <returns>All file lines.</returns>
     public static List<string> GetFileLines()
     {
         string fileName = GetFileName();
@@ -13,6 +17,10 @@ public static class FileOpener
         return rows;
     }
     
+    /// <summary>
+    /// Gets filename.
+    /// </summary>
+    /// <returns>Filename.</returns>
     private static string GetFileName()
     {
         ConsoleManager.WriteLine("Input filename");

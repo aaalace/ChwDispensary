@@ -5,6 +5,9 @@ namespace Solution;
 
 public static class BodyCycle
 {
+    /// <summary>
+    /// Runs program's body. Contains general exception handler.
+    /// </summary>
     public static void Run()
     {
         try

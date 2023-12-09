@@ -12,6 +12,11 @@ public static class SortFilterManager
         FilterChiefPosition
     }
     
+    /// <summary>
+    /// Gets sorted/filtered list of Dispensary objects.
+    /// </summary>
+    /// <param name="dispensaryList">List of unformatted objects.</param>
+    /// <returns>List of formatted objects.</returns>
     public static List<Dispensary> GetFormattedDispensaryList(List<Dispensary> dispensaryList)
     {
         var formattingMode = GetFormattingMode();
@@ -28,6 +33,10 @@ public static class SortFilterManager
         return formattedDispensaryList;
     }
 
+    /// <summary>
+    /// Gets formatting mode.
+    /// </summary>
+    /// <returns>Formatting mode.</returns>
     private static FormattingMode GetFormattingMode()
     {
         ConsoleManager.WriteLine("Select number of option to format data");
@@ -50,6 +59,12 @@ public static class SortFilterManager
         return formattingMode;
     }
 
+    /// <summary>
+    /// Sorts list of objects.
+    /// </summary>
+    /// <param name="order">Way of ordering.</param>
+    /// <param name="dispensaryList">Unsorted list of objects.</param>
+    /// <returns>Sorted list of objects.</returns>
     private static List<Dispensary> Sort(FormattingMode order , List<Dispensary> dispensaryList)
     {
         var result = order switch
@@ -64,6 +79,12 @@ public static class SortFilterManager
         return result;
     }
 
+    /// <summary>
+    /// Filters list of objects.
+    /// </summary>
+    /// <param name="type">Formatting mode.</param>
+    /// <param name="dispensaryList">Unfiltered list of objects.</param>
+    /// <returns>Filtered list of objects.</returns>
     private static List<Dispensary> Filter(FormattingMode type, List<Dispensary> dispensaryList)
     {
         string filterValue = GetFilterValue();
@@ -79,6 +100,10 @@ public static class SortFilterManager
         return result;
     }
 
+    /// <summary>
+    /// Gets value from user to filter by.
+    /// </summary>
+    /// <returns>Value to filter by.</returns>
     private static string GetFilterValue()
     {
         ConsoleManager.WriteLine("Еnter a value for filtering");

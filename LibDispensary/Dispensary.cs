@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace LibDispensary;
+﻿namespace LibDispensary;
 
 public class Dispensary
 {
