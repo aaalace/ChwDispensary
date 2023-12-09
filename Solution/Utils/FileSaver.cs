@@ -16,6 +16,11 @@ public static class FileSaver
     public static void Save(List<Dispensary> dispensaryListToSave, string header)
     {
         var savingMode = GetSavingMode();
+        if (savingMode == SavingMode.Cancel)
+        {
+            return;
+        }
+        
         var path = GetFilePath();
 
         switch (savingMode)
@@ -29,8 +34,6 @@ public static class FileSaver
             case SavingMode.AddToExisting:
                 SaveAddToExiting(path, dispensaryListToSave, header);
                 break;
-            case SavingMode.Cancel:
-                break;
             default:
                 throw new ArgumentException("Error in saving action");
         }
@@ -38,10 +41,11 @@ public static class FileSaver
 
     private static SavingMode GetSavingMode()
     {
-        Console.WriteLine("Select number of option to save data");
-        Console.WriteLine("1 - create new file");
-        Console.WriteLine("2 - rewrite existing file");
-        Console.WriteLine("3 - add rows to existing file");
+        ConsoleManager.WriteLine("Select number of option to save data");
+        ConsoleManager.WriteLine("1 - create new file", color: ConsoleColor.Green);
+        ConsoleManager.WriteLine("2 - rewrite existing file", color: ConsoleColor.Green);
+        ConsoleManager.WriteLine("3 - add rows to existing file", color: ConsoleColor.Green);
+        ConsoleManager.WriteLine("4 - cancel saving", color: ConsoleColor.Green);
         string? inputType = Console.ReadLine();
         if (inputType == null) { throw new ArgumentNullException(nameof(inputType)); }
 
@@ -59,7 +63,7 @@ public static class FileSaver
     
     private static string GetFilePath()
     {
-        Console.WriteLine("Input path to save");
+        ConsoleManager.WriteLine("Input path to save");
         string? path = Console.ReadLine();
         if (path == null) { throw new ArgumentNullException(nameof(path)); }
 
@@ -68,10 +72,14 @@ public static class FileSaver
 
     private static void SaveNew(string path, List<Dispensary> dispensaryList, string header)
     {
-        if (File.Exists(path)) { Console.WriteLine("File already exists, it will be rewrited"); }
-
-        path = ToCsvFormat(path);
+        if (File.Exists(path))
+        {
+            ConsoleManager.WriteLine("File already exists, it will be rewrited", color: ConsoleColor.DarkRed);
+            SaveRewriteExisting(path, dispensaryList, header);
+            return;
+        }
         
+        path = ToCsvFormat(path);
         WriteFromStart(path, dispensaryList, header);
         
         return;
@@ -86,7 +94,13 @@ public static class FileSaver
 
     private static void SaveRewriteExisting(string path, List<Dispensary> dispensaryList, string header)
     {
-        if (!File.Exists(path)) { Console.WriteLine("File not exists, it will be created"); }
+        if (!File.Exists(path))
+        {
+            ConsoleManager.WriteLine("File not exists, it will be created", color: ConsoleColor.DarkRed);
+            SaveNew(path, dispensaryList, header);
+            return;
+        }
+        
         WriteFromStart(path, dispensaryList, header);
     }
 
@@ -94,8 +108,8 @@ public static class FileSaver
     {
         if (!File.Exists(path))
         {
-            Console.WriteLine("File not exists, it will be created");
-            WriteFromStart(path, dispensaryList, header);
+            ConsoleManager.WriteLine("File not exists, it will be created", color: ConsoleColor.DarkRed);
+            SaveNew(path, dispensaryList, header);
             return;
         }
         
@@ -117,7 +131,6 @@ public static class FileSaver
     private static string ParseDataRow(Dispensary dispensary)
     {
         const char sym = '"';
-        
         var sb = new StringBuilder();
         
         sb.Append($"{dispensary.DataList[0]};");

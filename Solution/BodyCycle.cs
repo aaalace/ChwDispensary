@@ -28,53 +28,57 @@ public static class BodyCycle
 
             // Get sorted/filtered objects.
             var formattedDispensaryList = SortFilterManager.GetFormattedDispensaryList(dispensaryList);
-            
+
             // Show sorted/filtered objects to user.
             DataToViewHandler.Show(formattedDispensaryList, originalHeader);
-            
+
             // Save sorted/filtered objects to file.
             FileSaver.Save(formattedDispensaryList, originalHeader);
-            
+
         }
         catch (EmptyInputRowsException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (IncorrectHeaderFormatException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (IncorrectRowElementsNumberException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (IncorrectRowFormatException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (DataViewTypeException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
+        }
+        catch (FormatException e)
+        {
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (ArgumentOutOfRangeException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (ArgumentNullException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (ArgumentException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (FileNotFoundException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (IOException e)
         {
-            Console.WriteLine(e.Message);
+            ConsoleManager.WriteLine(e.Message, color: ConsoleColor.DarkRed);
         }
         catch (Exception)
         {

@@ -15,7 +15,7 @@ public static class FileOpener
     
     private static string GetFileName()
     {
-        Console.WriteLine("Input filename");
+        ConsoleManager.WriteLine("Input filename");
         string? fileName = Console.ReadLine();
         if (fileName == null) { throw new ArgumentNullException(nameof(fileName)); }
 

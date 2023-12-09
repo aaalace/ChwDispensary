@@ -16,23 +16,24 @@ public static class DataToViewHandler
     {
         if (dispensaryListToShow.Count == 0)
         {
-            Console.WriteLine("Empty set of objects");
+            ConsoleManager.WriteLine("Empty set of objects", color: ConsoleColor.DarkRed);
             return;
         }
         
         try
         {
             var customForm = new CustomForm(dispensaryListToShow, header);
-            Console.WriteLine("Close opened window to continue console work...");
+            ConsoleManager.WriteLine("Close opened window to continue console work...");
             customForm.ShowDialog();
         }
         catch (Exception)
         {
-            Console.WriteLine("Error in showing data in form. Here is console view:");
-            Console.WriteLine(header);
+            ConsoleManager.WriteLine("Error in showing data in form. Here is console view:", 
+                color: ConsoleColor.Yellow);
+            ConsoleManager.WriteLine(header, color: ConsoleColor.White);
             foreach (var element in dispensaryListToShow)
             {
-                Console.WriteLine(element.ToString());
+                ConsoleManager.WriteLine(element.ToString(), color: ConsoleColor.White);
             }
         }
     }
@@ -47,7 +48,7 @@ public static class DataToViewHandler
 
     private static DataViewType GetDataViewType()
     {
-        Console.WriteLine("Select view type (top / bottom):");
+        ConsoleManager.WriteLine("Select view type (top / bottom):");
         string? dataViewTypeAsString = Console.ReadLine();
         if (dataViewTypeAsString == null) { throw new ArgumentNullException(nameof(dataViewTypeAsString)); }
 
@@ -63,13 +64,13 @@ public static class DataToViewHandler
 
     private static int GetDataViewCount(int countOfAll)
     {
-        Console.WriteLine($"Select view count (1 - {countOfAll}) :");
+        ConsoleManager.WriteLine($"Select view count (1 - {countOfAll}) :");
         string? dataViewCountAsString = Console.ReadLine();
         
         if (dataViewCountAsString == null) { throw new ArgumentNullException(nameof(dataViewCountAsString)); }
         if (!int.TryParse(dataViewCountAsString, out int dataViewCount))
         {
-            throw new FormatException("Wrong input of number");
+            throw new FormatException("Wrong type of value");
         }
         if (dataViewCount < 1 || dataViewCount > countOfAll)
         {

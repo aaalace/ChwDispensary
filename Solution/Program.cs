@@ -1,10 +1,12 @@
-﻿namespace Solution;
+﻿using Solution.Utils;
+
+namespace Solution;
 
 public static class Program
 {
     private static bool HandleRepeat()
     {
-        Console.WriteLine("Press Q to exit...");
+        ConsoleManager.WriteLine("Press Q to exit...");
         return Console.ReadKey(true).Key != ConsoleKey.Q;
     }
     

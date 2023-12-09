@@ -30,11 +30,11 @@ public static class SortFilterManager
 
     private static FormattingMode GetFormattingMode()
     {
-        Console.WriteLine("Select number of option to format data");
-        Console.WriteLine("1 - sort by district (increase)");
-        Console.WriteLine("2 - sort by district (decrease)");
-        Console.WriteLine("3 - filter by specialization");
-        Console.WriteLine("4 - filter by chief position");
+        ConsoleManager.WriteLine("Select number of option to format data");
+        ConsoleManager.WriteLine("1 - sort by district (increase)", color: ConsoleColor.Green);
+        ConsoleManager.WriteLine("2 - sort by district (decrease)", color: ConsoleColor.Green);
+        ConsoleManager.WriteLine("3 - filter by specialization", color: ConsoleColor.Green);
+        ConsoleManager.WriteLine("4 - filter by chief position", color: ConsoleColor.Green);
         string? inputType = Console.ReadLine();
         if (inputType == null) { throw new ArgumentNullException(nameof(inputType)); }
 
@@ -81,7 +81,7 @@ public static class SortFilterManager
 
     private static string GetFilterValue()
     {
-        Console.WriteLine("Еnter a value for filtering");
+        ConsoleManager.WriteLine("Еnter a value for filtering");
         string? inputValue = Console.ReadLine();
         if (inputValue == null) { throw new ArgumentNullException(nameof(inputValue)); }
 
